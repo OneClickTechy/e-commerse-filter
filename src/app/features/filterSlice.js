@@ -34,7 +34,6 @@ const filterSlice = createSlice({
     recommendedAdded: {
       reducer: (state, action) => {
         state.recommended = action.payload;
-        console.log(state.recommended)
       },
     },
   },

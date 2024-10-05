@@ -8,12 +8,13 @@ const Price = () => {
   const dispatch = useDispatch();
   const handleprice = (e) => {
     setSelectedRadio(e.target.value);
-    dispatch(priceAdded(e.target.value));re
+    dispatch(priceAdded(e.target.value));
   };
   const price = [
     { name: "All", value: "allprice" },
     { name: "$0 - $50", value: "0-50" },
     { name: "$50 - $100", value: "50-100" },
+    { name: "$100 - $150", value: "100-150" },
     { name: "Over $150", value: "150+" },
   ];
   useEffect(() => console.log(selectedRadio), [selectedRadio]);

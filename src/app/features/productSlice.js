@@ -12,7 +12,6 @@ const API_URL = "http://localhost:3500/products";
 // Async thunk to fetch products
 const fetchProducts = createAsyncThunk("products/fetchProducts", async () => {
   const response = await axios.get(API_URL);
-  console.log(response.data);
   return response.data;
 });
 
