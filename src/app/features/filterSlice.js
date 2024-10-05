@@ -34,14 +34,16 @@ const filterSlice = createSlice({
     recommendedAdded: {
       reducer: (state, action) => {
         state.recommended = action.payload;
+        console.log(state.recommended)
       },
     },
   },
 });
 export default filterSlice.reducer;
-export const { categoryAdded, priceAdded, colorAdded, searchAdded } =
+export const { categoryAdded, priceAdded, colorAdded, searchAdded, recommendedAdded } =
   filterSlice.actions;
 export const selectCategory = (state) => state.filter.category;
 export const selectPrice = (state) => state.filter.price;
 export const selectColor = (state) => state.filter.color;
 export const selectSearch = (state) => state.filter.search;
+export const selectRecommended = (state) => state.filter.recommended;

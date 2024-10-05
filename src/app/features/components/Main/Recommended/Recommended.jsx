@@ -1,10 +1,17 @@
 import React from "react";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { recommendedAdded } from "../../../filterSlice";
 
 const Recommended = () => {
   const title = "Recommended";
   const [Recommended, setRecommended] = useState("allProduct");
-  const handleRecommended = (e) => setRecommended(e.target.value);
+  const dispatch = useDispatch();
+
+  const handleRecommended = (e) => {
+    setRecommended(e.target.value);
+    dispatch(recommendedAdded(e.target.value))
+  };
   const buttons = [
     { value: "allProduct", title: "All Products" },
     { value: "Nike", title: "Nike" },
