@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { categoryAdded } from "../../../filterSlice";
 
 const Category = () => {
   const title = "Category";
@@ -10,9 +12,11 @@ const Category = () => {
     { name: "Sandals", value: "sandals" },
     { name: "Heels", value: "heels" },
   ];
+  const dispatch = useDispatch()
   useEffect(() => console.log(selectedRadio), [selectedRadio]);
   const handleCategory = (e) => {
     setSelectedRadio(e.target.value);
+    dispatch(categoryAdded(e.target.value))
   };
   return (
     <section>

@@ -4,7 +4,7 @@ import { FaOpencart } from "react-icons/fa6";
 const AppIcon = () => {
   return (
     <>
-      <FaOpencart />
+      <FaOpencart className="w-full h-8"/>
     </>
   );
 };

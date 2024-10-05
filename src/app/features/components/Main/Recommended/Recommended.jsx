@@ -13,12 +13,15 @@ const Recommended = () => {
     { value: "Vans", title: "Vans" },
   ];
   return (
-    <section>
+    <section className="sticky top-[45px] bg-white col-start-1 col-end-[-1] flex flex-col justify-center items-center">
       <h1>{title}</h1>
       <div className="flex gap-4">
-        {buttons.map((button) => (
+        {buttons.map((button, index) => (
           <button
-            className={`border border-gray-500 rounded-lg p-1 ${Recommended === button.value ? 'text-white bg-black/50' : ''} `}
+            key={index}
+            className={`border border-gray-500 rounded-lg p-1 ${
+              Recommended === button.value ? "text-white bg-black/50" : ""
+            } `}
             type="button"
             value={button.value}
             onClick={handleRecommended}

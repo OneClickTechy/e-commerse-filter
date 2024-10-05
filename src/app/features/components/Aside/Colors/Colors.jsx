@@ -1,9 +1,15 @@
 import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { colorAdded } from "../../../filterSlice";
 
 const Colors = () => {
   const title = "Colors";
   const [selectedColor, setSelectedColor] = useState("allcolors");
-  const handleColor = (e) => setSelectedColor(e.target.value);
+  const dispatch = useDispatch();
+  const handleColor = (e) => {
+    setSelectedColor(e.target.value);
+    dispatch(colorAdded(e.target.value));
+  };
   useEffect(() => console.log(selectedColor), [selectedColor]);
   const colors = [
     {
@@ -14,7 +20,7 @@ const Colors = () => {
     {
       value: "black",
       name: "Black",
-      bgColor: 'bg-black'
+      bgColor: "bg-black",
     },
     {
       value: "blue",
@@ -42,7 +48,11 @@ const Colors = () => {
       <h1>{title}</h1>
       <div className="flex flex-col leading-8 gap-2">
         {colors.map((color, index) => (
-          <label htmlFor={color.value} key={index} className="flex flex-nowrap">
+          <label
+            htmlFor={color.value}
+            key={index}
+            className="flex flex-nowrap justify-start items-center"
+          >
             <input
               type="radio"
               name="color"
@@ -52,18 +62,15 @@ const Colors = () => {
               onChange={handleColor}
               className="sr-only"
             />
-  <div
-  className={`w-6 h-6 ${color.bgColor} rounded-full ${
-    color.value === "white" ? "border-2 border-gray-500" : ""
-  } focus:ring-2 focus:ring-blue-600 active:ring-2 active:ring-blue-600 ${selectedColor === color.value ? 'outline-blue-500 outline' : ''} `}
-></div>
-
-
-            &nbsp;
-            <span>
-            {color.name}
-
-            </span>
+            <div
+              className={`w-4 h-4 ${color.bgColor} rounded-full ${
+                color.value === "white" ? "border-2 border-gray-500" : ""
+              } focus:ring-2 focus:ring-blue-600 active:ring-2 active:ring-blue-600 ${
+                selectedColor === color.value ? "outline-blue-500 outline" : ""
+              } `}
+            ></div>
+            &nbsp; &nbsp;
+            <span>{color.name}</span>
           </label>
         ))}
       </div>

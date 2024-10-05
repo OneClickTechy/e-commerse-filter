@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { priceAdded } from "../../../filterSlice";
 
 const Price = () => {
   const title = "Price";
   const [selectedRadio, setSelectedRadio] = useState("allprice");
+  const dispatch = useDispatch();
   const handleprice = (e) => {
     setSelectedRadio(e.target.value);
+    dispatch(priceAdded(e.target.value));re
   };
   const price = [
     { name: "All", value: "allprice" },
@@ -27,6 +31,7 @@ const Price = () => {
               onChange={handleprice}
               checked={selectedRadio === item.value}
             />
+            &nbsp;
             <label htmlFor={item.value}>{item.name}</label>
           </div>
         ))}

@@ -1,12 +1,10 @@
 import React from "react";
-import AppIcon from "./AppIcon/AppIcon";
 import SearchBar from "./SearchBar/SearchBar";
 import Buttons from "./Buttons/Buttons";
 
 const Navigator = () => {
   return (
-    <nav className="flex justify-between items-center p-2">
-      <AppIcon />
+    <nav className="bg-white z-10 sticky top-0  col-start-2 col-end-[-1] flex justify-evenly items-start">
       <SearchBar />
       <Buttons />
     </nav>

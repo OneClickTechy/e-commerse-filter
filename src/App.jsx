@@ -1,14 +1,14 @@
 import React from "react";
-import Navigator from "./components/Navigator/Navigator";
-import Aside from "./components/Aside/Aside";
-import Main from "./components/Main/Main";
+import Navigator from "./app/features/components/Navigator/Navigator";
+import Aside from "./app/features/components/Aside/Aside";
+import Main from "./app/features/components/Main/Main";
 
 const App = () => {
   return (
     <>
-      <Navigator />
       <Aside />
-      <Main />
+      <Navigator />
+      <Main />      
     </>
   );
 };
