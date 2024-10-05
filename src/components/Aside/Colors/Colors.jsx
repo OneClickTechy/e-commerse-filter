@@ -55,7 +55,7 @@ const Colors = () => {
   <div
   className={`w-6 h-6 ${color.bgColor} rounded-full ${
     color.value === "white" ? "border-2 border-gray-500" : ""
-  } focus:ring-2 focus:ring-blue-600 active:ring-2 active:ring-blue-600`}
+  } focus:ring-2 focus:ring-blue-600 active:ring-2 active:ring-blue-600 ${selectedColor === color.value ? 'outline-blue-500 outline' : ''} `}
 ></div>
 
 
