@@ -1,34 +1,38 @@
-import React from "react";
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const Category = () => {
-  //category list
-  const categoryList = ["all", "sneakers", "flats", "sandals", "Heels"];
-  //value for radio buttons
-  const [selected, setSelected] = useState(categoryList[0]);
-  //handle values -> radio buttons
-  const handleChange = (e) => setSelected(e.target.value);
-
+  const title = "Category";
+  const [selectedRadio, setSelectedRadio] = useState("allcategory");
+  const category = [
+    { name: "All", value: "allcategory" },
+    { name: "Sneakers", value: "sneakers" },
+    { name: "Flats", value: "flats" },
+    { name: "Sandals", value: "sandals" },
+    { name: "Heels", value: "heels" },
+  ];
+  useEffect(() => console.log(selectedRadio), [selectedRadio]);
+  const handleCategory = (e) => {
+    setSelectedRadio(e.target.value);
+  };
   return (
     <section>
-      <h1>Category</h1>
-      <fieldset className="flex flex-col gap-2">
-        {categoryList.map((item, index) => (
-          <label key={index} htmlFor={item}>
+      <h1>{title}</h1>
+      <div className="flex flex-col leading-8">
+        {category.map((item, index) => (
+          <label htmlFor={item.value} key={index}>
             <input
               type="radio"
               name="category"
-              value={item}
-              checked={selected === item}
-              onChange={handleChange}
-              id={item}
-              className="w-4 h-4"
+              id={item.value}
+              value={item.value}
+              checked={selectedRadio === item.value}
+              onChange={handleCategory}
             />
-            &nbsp;&nbsp;
-            {item[0].toUpperCase() + item.slice(1)}
+            &nbsp;
+            {item.name}
           </label>
         ))}
-      </fieldset>
+      </div>
     </section>
   );
 };
